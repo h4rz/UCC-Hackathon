@@ -1,0 +1,32 @@
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion 23
+
+
+    defaultConfig {
+        applicationId "com.colerobinette.cryptowatch"
+        minSdkVersion 21
+        targetSdkVersion 23
+        versionCode 13
+        versionName "1.5.2"
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+dependencies {
+    implementation 'com.android.support:support-v4:23.4.0'
+    implementation 'com.android.support.constraint:constraint-layout:1.1.1'
+    implementation 'com.google.firebase:firebase-database:11.0.4'
+    compile fileTree(dir: 'libs', include: ['*.jar'])
+    compile 'com.android.support:appcompat-v7:24.0.0-alpha2'
+    implementation 'com.github.PhilJay:MPAndroidChart:v3.0.3'
+}
+
+
+apply plugin: 'com.google.gms.google-services'

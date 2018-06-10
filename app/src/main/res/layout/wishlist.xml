@@ -1,0 +1,242 @@
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.colerobinette.smartfolio.Balance">
+
+    <RelativeLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:id="@+id/columnHeaders"
+        android:background="#555555"
+        android:layout_below="@+id/portfolioDisplay">
+
+        <TextView
+            android:layout_width="58dp"
+            android:layout_height="match_parent"
+            android:text="Coin↑"
+            android:id="@+id/sortCoinButton"
+            android:gravity="center_vertical|right"
+            android:layout_weight=".1"
+            android:textColor="@color/text_header"
+            android:textSize="15sp"
+            android:onClick="SortByCoin"
+            android:paddingLeft="15dp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="Holdings↓"
+            android:id="@+id/sortHoldingsButton"
+            android:gravity="center_vertical|right"
+            android:layout_weight=".45"
+            android:textColor="@color/text_header"
+            android:textSize="15sp"
+            android:onClick="SortByHoldings"
+            android:layout_toEndOf="@+id/sortCoinButton"
+            android:layout_toStartOf="@+id/sortPriceButton" />
+
+        <TextView
+            android:layout_width="185dp"
+            android:layout_height="match_parent"
+            android:text="Price↓"
+            android:id="@+id/sortPriceButton"
+            android:gravity="center_vertical|right"
+            android:layout_weight=".45"
+            android:textColor="@color/text_header"
+            android:textSize="15sp"
+            android:onClick="SortByPrice"
+            android:paddingRight="25dp"
+            android:layout_alignParentEnd="true" />
+
+    </RelativeLayout>
+
+    <ListView
+        android:id="@+id/balancesList"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_below="@+id/columnHeaders"
+        android:divider="#cccccc"
+        android:dividerHeight="1dp"
+        android:drawSelectorOnTop="false" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#8f7f7f7f"
+        android:visibility="gone"
+        android:id="@+id/greyOverlay"></RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:background="#ffffff"
+        android:id="@+id/setCurrencyBox"
+        android:visibility="gone">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="55dp"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:id="@+id/setCurrencyTitle"
+            android:padding="10dp"
+            android:background="@color/primary"
+            android:textColor="#ffffff"
+            android:text="@string/enter_currency" />
+
+        <com.colerobinette.smartfolio.BalanceEditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/currencyInput"
+            android:maxLines="1"
+            android:gravity="center_vertical|right"
+            android:textSize="40sp"
+            android:paddingRight="20dp"
+            android:paddingLeft="20dp"
+            android:imeOptions="actionDone"
+            android:textColor="@color/text_primary"
+            android:layout_below="@+id/setCurrencyTitle"
+            android:inputType="textNoSuggestions|textCapCharacters" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:background="#ffffff"
+        android:id="@+id/newCoinBox"
+        android:visibility="gone">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="55dp"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:id="@+id/AddCoinTitle"
+            android:padding="10dp"
+            android:background="@color/primary"
+            android:textColor="#ffffff"
+            android:text="@string/enterCoinSymbol" />
+
+        <com.colerobinette.smartfolio.BalanceEditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/coinInput"
+            android:maxLines="1"
+            android:gravity="center_vertical|right"
+            android:textSize="40sp"
+            android:paddingRight="20dp"
+            android:paddingLeft="20dp"
+            android:imeOptions="actionDone"
+            android:textColor="@color/text_primary"
+            android:layout_below="@+id/AddCoinTitle"
+            android:inputType="textNoSuggestions|textCapCharacters" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        android:layout_alignParentBottom="true"
+        android:id="@+id/editBalanceBox"
+        android:background="@color/primary">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="55dp"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:id="@+id/editTitle"
+            android:padding="10dp"
+            android:textColor="#ffffff" />
+
+        <ImageView
+            android:layout_width="50dp"
+            android:layout_height="55dp"
+            android:id="@+id/deleteButton"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:src="@drawable/trash"
+            android:layout_above="@+id/balanceInput"
+            android:onClick="DeleteSelected"
+            android:contentDescription="@string/delete"
+            android:layout_marginRight="16dp" />
+
+        <com.colerobinette.smartfolio.BalanceEditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/balanceInput"
+            android:maxLines="1"
+            android:inputType="numberSigned|numberDecimal"
+            android:layout_below="@+id/editTitle"
+            android:gravity="center_vertical|right"
+            android:textSize="40sp"
+            android:paddingRight="20dp"
+            android:paddingLeft="20dp"
+            android:imeOptions="actionDone"
+            android:textColor="@color/text_primary"
+            android:background="#ffffff" />
+
+    </RelativeLayout>
+
+
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:paddingTop="80dp"
+        android:paddingBottom="80dp"
+        android:paddingLeft="40dp"
+        android:paddingRight="40dp"
+        android:layout_below="@+id/columnHeaders"
+        android:visibility="gone"
+        android:id="@+id/coinSelector">
+
+        <TextView
+            android:layout_width="fill_parent"
+            android:layout_height="40dp"
+            android:text="Which BAT?"
+            android:id="@+id/chooseCoinTitle"
+            android:gravity="center_vertical"
+            android:layout_weight=".1"
+            android:textColor="@color/text_header"
+            android:textSize="15sp"
+            android:paddingLeft="15dp"
+            android:background="@color/primary" />
+
+        <ListView
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:divider="#cccccc"
+            android:dividerHeight="1dp"
+            android:id="@+id/collidingCoins"
+            android:background="#ffffff"
+            android:layout_below="@+id/chooseCoinTitle" />
+
+    </RelativeLayout>
+
+    <LinearLayout
+        android:id="@+id/linearlayout1"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:layout_alignParentBottom="true"
+        android:layout_marginTop="15dp">
+
+        <Button
+            android:id="@+id/marketscreen"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Market" />
+
+        <Button
+            android:id="@+id/wishlistscreen"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="Wishlistfunction"
+            android:text="Wishlist" />
+
+
+    </LinearLayout>
+
+</RelativeLayout>

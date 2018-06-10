@@ -1,0 +1,24 @@
+<resources>
+    <string name="app_name">SmartFolio</string>
+    <string name="loading_message">0.00</string>
+    <string name="title_activity_add_account">New Address</string>
+    <string name="coin_prompt">Select Coin Type</string>
+    <string name="total_balance">Total Portfolio Value</string>
+    <string name="add_button">New Address</string>
+    <string name="enterCoinSymbol">Enter Coin Symbol</string>
+    <string name="coinicon">coinIcon</string>
+    <string name="miota">ERROR</string>
+    <string name="delete">Delete Coin</string>
+    <string name="plus">+</string>
+    <string name="refresh">Refresh</string>
+    <string name="dollarsign">$</string>
+    <string name="change24hr">24hr Change</string>
+    <string name="infobutton">i</string>
+    <string name="newCoin">New Coin</string>
+    <string name="help">Help</string>
+    <string name="enter_currency">Enter Currency Code</string>
+    <string name="wishlist_flag">false</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+</resources>

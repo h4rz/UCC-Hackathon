@@ -1,0 +1,67 @@
+{
+  "project_info": {
+    "project_number": "354827056926",
+    "firebase_url": "https://cryptowatch-master.firebaseio.com",
+    "project_id": "cryptowatch-master",
+    "storage_bucket": "cryptowatch-master.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:354827056926:android:881675fc09b120e2",
+        "android_client_info": {
+          "package_name": "com.colerobinette.cryptowatch"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "354827056926-ahnth8opcafp5s5rk08kbehkbjl0qd85.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.colerobinette.cryptowatch",
+            "certificate_hash": "b1394a7889b3cb7aa2634e06d51dd445fa186eaf"
+          }
+        },
+        {
+          "client_id": "354827056926-s08mqr9td5dpq3sbq2h5f7h543r0ueba.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.colerobinette.cryptowatch",
+            "certificate_hash": "437857d57a422d2cc0945a8df59bfc2d6e1d5afd"
+          }
+        },
+        {
+          "client_id": "354827056926-0uv1hpjpsb0tj4bbsuesa5jso0672s6h.apps.googleusercontent.com",
+          "client_type": 3
+        },
+        {
+          "client_id": "354827056926-0uv1hpjpsb0tj4bbsuesa5jso0672s6h.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDhbswT-uQy1t8nhcEO9H1Uu5IQlMxHId8"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "354827056926-0uv1hpjpsb0tj4bbsuesa5jso0672s6h.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
